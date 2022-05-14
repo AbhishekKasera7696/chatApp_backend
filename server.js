@@ -24,6 +24,7 @@ const io = require('socket.io')(server, {
         methods: ['GET', 'POST']
     }
 });
+
 app.get('/', (req,res)=> {
     res.send("backend is running")
 })
