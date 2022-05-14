@@ -24,6 +24,9 @@ const io = require('socket.io')(server, {
         methods: ['GET', 'POST']
     }
 });
+app.get('/', (req,res)=> {
+    res.send("backend is running")
+})
 
 app.get('/rooms', (req, res) => {
     res.json(rooms)

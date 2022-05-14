@@ -26,10 +26,12 @@ router.post('/', async(req,res)=> {
 router.post('/login', async(req,res)=>{
 try{
    const {email, password} = req.body;
-   const user = await User.findByCredentials(email, password);
+   console.log(email,password)
+   const user = await User.findOne({email});
    user.status = 'online';
    await user.save();
    res.status(200).json(user)
+   console.log(user)
   }catch (e){
      res.status(400).json(e.message)
   }
